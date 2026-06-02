@@ -1,0 +1,7 @@
+torch>=2.0.0
+transformers==4.46.2  # Dream/DIA uses pre-5.x RoPE init; transformers 5.x breaks loading (ROPE_INIT_FUNCTIONS['default'] removed)
+accelerate>=0.30.0
+tqdm>=4.64.0
+regex>=2023.0.0
+lm_eval>=0.4.0
+datasets>=2.14.0
