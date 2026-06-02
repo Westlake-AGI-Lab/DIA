@@ -3,7 +3,6 @@
 > **Dynamic Infilling Anchors for Format-Constrained Generation in Diffusion Large Language Models**
 >
 > The 64th Annual Meeting of the Association for Computational Linguistics (ACL 2026)
-> · [OpenReview](https://openreview.net/forum?id=DHFTHFrv3V)
 
 ## 1. Introduction
 
