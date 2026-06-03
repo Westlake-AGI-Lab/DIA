@@ -39,7 +39,7 @@ Tested with Python 3.10, CUDA, a single ≥24 GB GPU (Dream-7B in bf16), and **`
 DIA's reasoning evaluation runs inside `lm-evaluation-harness`. Clone and install it first, **then** install our `requirements.txt` so that the pinned `transformers==4.46.2` takes precedence.
 
 ```bash
-git clone https://github.com/HKUNLP/DIA.git      # this repository
+git clone https://github.com/Westlake-AGI-Lab/DIA.git      # this repository
 cd DIA
 
 # Install lm-evaluation-harness (editable). This also pulls a recent transformers.
@@ -64,8 +64,6 @@ cp dia/generation_utils_dia.py  resource/dream_dia/generation_utils_dia.py
 ```
 
 `config.json`'s `auto_map` already points to `modeling_dream.DreamModel`, and DIA's `modeling_dream.py` imports `from .generation_utils_dia import ...` — so after the copy, `AutoModel.from_pretrained("resource/dream_dia", trust_remote_code=True)` loads the real DIA `_block_sample` path. (`configuration_dream.py` and `tokenization_dream.py` are identical to the official ones, so they need not be copied.)
-
-> Skipping this injection silently falls back to stock Dream: the hub's `generation_utils.py` has no `_block_sample` and quietly ignores DIA's `format_ids`, so generation "looks fine" but **DIA is never applied**.
 
 All evaluation scripts default to `resource/dream_dia` (resolved relative to the repo root). Override with `--model <path>` / `pretrained=<path>` if you place the model elsewhere.
 
